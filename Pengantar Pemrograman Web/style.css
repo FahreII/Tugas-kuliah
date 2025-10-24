@@ -1,0 +1,317 @@
+
+*,
+body {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #003347;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.navbar li {
+    margin: 0 20px;
+    font-family: 'Exo 2', sans-serif;
+    color: #ffffff;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #00eaff;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #00eaff;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+/* NAVBAR */
+
+
+/* ========== SECTION ========== */
+section {
+    min-height: 100vh;
+    padding: 120px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* HOME */
+#home {
+    background: #004056;
+}
+
+.home-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.home-section .text {
+    position: relative;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    top: 20%;
+    font-size: 20px;
+    flex: 1 1 400px;
+}
+
+.home-section img {
+    position: relative;
+    width: 380px;
+    border-radius: 20px;
+    left: 9rem;
+    box-shadow: 0 0 20px #3a3a3a;
+}
+
+
+/* SEJARAH */
+#sejarah {
+    background: #6ea9b4;
+    color: #1a1a1a;
+    border-top: 3px solid #004056;
+    height: 119rem;
+}
+
+#sejarah h2 {
+    font-family: 'Russo One', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* TABLE START */
+.table-container {
+    overflow-x: auto;
+    margin-top: 30px;
+    margin-bottom: 2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #003347;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #cceeff;
+}
+/* TABLE END */
+
+
+.kotak-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.kotak-row {
+    display: flex;
+    justify-content: center;
+    gap: 33px;
+    flex-wrap: wrap; 
+}
+
+.kotak-paten {
+    background-color: #f2e3b6;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kotak-paten:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.kotak-paten h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.kotak-paten p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+.robot-img {
+    width: 250px;
+    margin-top: 40px;
+}
+
+/* TEKNOLOGI */
+#teknologi {
+    height: 50px;
+    background: #003347;
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+}
+
+.tekno {
+    position: relative;
+    top: 8rem;
+    text-align: center;
+}
+
+.bahasa img {
+    position: relative;
+    height: 10rem;
+    width: auto;
+}
+
+.box {
+    width: 45%;
+    border-radius: 20px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.box h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: 'Russo One', sans-serif;
+    letter-spacing: 1px;
+}
+
+.python {
+    position: absolute;
+    left: 4%;
+    background: linear-gradient(135deg, #007ce2, #e7fc4a);
+}
+
+.pylogo {
+    position: relative;
+    height: 50px;
+    width: auto;
+    bottom: 70px;
+}
+
+.cpp {
+    position: absolute;
+    right:4%;
+    background: linear-gradient(135deg, #00427a, #0073e6, #2a5298);
+}
+
+.cpplogo {
+    position: relative;
+    height: 50px;
+    width: auto;
+    bottom: 70px;
+}
+
+.box ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.box li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.footer {
+    position: relative;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+
+.footer-links a {
+    text-decoration: none;
+    color: #0073e6;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;     
+        align-items: center;        
+        gap: 10px;                 
+        padding: 10px 0;
+    }
+
+    .navbar li a {
+        display: block;
+        font-size: 16px;            
+        padding: 8px 0;             
+        width: 100%;                
+        text-align: center;
+    }
+}

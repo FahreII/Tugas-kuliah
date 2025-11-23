@@ -36,20 +36,20 @@
             const form = document.getElementById("myForm");              
             const nama = document.getElementById("nama");                
             const email = document.getElementById("email");
+            const usia = document.getElementById("usia");
             const msg = document.getElementById("msg");                  
             const output = document.getElementById("output");            
 
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
 
-                // Validasi sederhana
                 if (nama.value.trim() === "" || email.value.trim() === "") {
                     msg.textContent = alert("Semua input wajib diisi!");
                     msg.className = "error";
                     return;
                 }
 
-                msg.textContent = alert("Data berhasil ditambahkan!");
+                msg.textContent = alert("Data berhasil ditambahkan!,silahkan menunggu pengumuman selanjutnya");
                 msg.className = "success";
 
                 const p = document.createElement("p");

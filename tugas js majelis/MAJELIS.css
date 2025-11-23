@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: hsl(169, 100%, 74%);
+    background: hsl(143, 100%, 55%);
     margin: 0;
     padding: 0;
     display: flex;
@@ -16,7 +16,7 @@ body {
 
 .data {
     position: absolute;
-    bottom: 180px;
+    bottom: 150px;
 }
 
 #output{
@@ -36,7 +36,7 @@ input{
 
 
 button {
-    background: linear-gradient(to right, #ffffff, #569aff);
+    background: linear-gradient(to right, #ffffff, #01ffff);
     background-size: 200% auto;
     color: rgb(0, 0, 0);
     cursor: pointer;
@@ -50,27 +50,23 @@ button:hover {
     background-position: right center;
 }
 
-.button {
-    text-align: center;
-}
-
 #myForm {
-    background: rgb(103, 255, 182);
-    padding: 25px;
-    width: 350px;  
+    background: rgb(36, 229, 255);
+    padding: 45px;
+    width: 385px;  
     border-radius: 10px;
 }
 
 .qris{
     position: absolute;
-    top: 18rem;
-    right: 37rem;
-    height: 140px;
+    top: 17rem;
+    right: 35rem;
+    height: 160px;
     width: auto;
 }
 
 .fast {
     position: absolute;
-    top: 15rem;
-    right: 618px;
+    top: 14rem;
+    right: 593px;
 }

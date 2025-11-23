@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    background: hsl(169, 100%, 74%);
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;   /* Horizontal center */
-    align-items: center;       /* Vertical center */
-    height: 100vh;             /* Full screen height */
+    justify-content: center;   
+    align-items: center;       
+    height: 100vh;             
 }
 
 #title {
@@ -16,7 +16,7 @@ body {
 
 .data {
     position: absolute;
-    bottom: 200px;
+    bottom: 180px;
 }
 
 #output{
@@ -24,15 +24,40 @@ body {
     bottom: 100px;
 }
 
+label{
+    color: rgb(0, 0, 0);
+}
+
+input{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 6px;
+}
+
+
+button {
+    background: linear-gradient(to right, #ffffff, #569aff);
+    background-size: 200% auto;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    padding: 5px 60px;
+    transition: 0.4s ease;
+}
+
+button:hover {
+    background-position: right center;
+}
+
 .button {
     text-align: center;
 }
 
 #myForm {
-    background: rgb(65, 255, 141);
+    background: rgb(103, 255, 182);
     padding: 25px;
-    width: 350px;
-    border: 1px solid #ffffff;   
+    width: 350px;  
     border-radius: 10px;
 }
 

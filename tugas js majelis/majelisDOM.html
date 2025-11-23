@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Web Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 id="title">Form Registrasi</h2>
+
+    <form id="myForm">
+        <label>Nama:</label><br>
+        <input type="text" id="nama"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email"><br><br>
+
+        <button type="submit">Kirim</button>
+    </form>
+
+    <br>
+    <div id="msg"></div>
+
+    <h3>Data yang masuk:</h3>
+    <div id="output"></div>
+
+    <button id="hapusData">Hapus Semua Data</button>
+
+    <script>
+        const form = document.getElementById("myForm");              // DOM form
+        const nama = document.getElementById("nama");                // input
+        const email = document.getElementById("email");
+        const msg = document.getElementById("msg");                  // tempat error/sukses
+        const output = document.getElementById("output");            // tempat output
+        const btnHapus = document.getElementById("hapusData");       // tombol hapus
+
+        // Event submit form
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Validasi sederhana
+            if (nama.value.trim() === "" || email.value.trim() === "") {
+                msg.textContent = "Semua input wajib diisi!";
+                msg.className = "error";
+                return;
+            }
+
+            // Jika valid → tampilkan
+            msg.textContent = "Data berhasil ditambahkan!";
+            msg.className = "success";
+
+            // Membuat elemen baru → contoh createElement DOM
+            const p = document.createElement("p");
+            p.textContent = `Nama: ${nama.value} | Email: ${email.value}`;
+            output.appendChild(p);
+
+            // Reset form
+            nama.value = "";
+            email.value = "";
+        });
+
+        // Event tombol hapus data → removeChild DOM
+        btnHapus.addEventListener("click", () => {
+            output.innerHTML = "";
+            msg.textContent = "Semua data telah dihapus";
+            msg.className = "error";
+        });
+    </script>
+
+</body>
+
+</html>

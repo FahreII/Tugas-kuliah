@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Majelis</title>
+    <link rel="stylesheet" href="MAJELIS.css">
+</head>
+<body>
+    <h2 id="title">Pendaftaran Menjadi Anggota Majelis</h2>
+    
+    <form id="myForm">
+        <label>Nama:</label><br>
+        <input type="text" id="nama" ><br><br>
+
+        <img class="qris" src="/tugas js majelis/Gambar WhatsApp 2025-11-23 pukul 17.45.22_fda9da13.jpg" alt="Fast track">
+        <h3 class="fast">Fast Track</h3>
+        
+        <label>Usia:</label><br>
+        <input type="number" id="usia" ><br><br>
+        
+        <label>Email:</label><br>
+        <input type="email" id="email"><br><br>
+        <div class="button">
+            <button type="submit">Kirim</button>
+        </div>
+    </form>
+
+    <br>
+    <div id="msg"></div>
+    
+    <h3 class="data">Data yang masuk:</h3>
+    <div id="output"></div>
+
+    <script>
+            const form = document.getElementById("myForm");              
+            const nama = document.getElementById("nama");                
+            const email = document.getElementById("email");
+            const msg = document.getElementById("msg");                  
+            const output = document.getElementById("output");            
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Validasi sederhana
+                if (nama.value.trim() === "" || email.value.trim() === "") {
+                    msg.textContent = alert("Semua input wajib diisi!");
+                    msg.className = "error";
+                    return;
+                }
+
+                msg.textContent = alert("Data berhasil ditambahkan!");
+                msg.className = "success";
+
+                const p = document.createElement("p");
+                p.textContent = `Nama: ${nama.value} | Usia: ${usia.value} Tahun
+                | Email: ${email.value}`;
+                output.appendChild(p);
+            });
+    </script>
+</body>
+</html>

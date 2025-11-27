@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majelis 2.0</title>
+    <style>
+        body {
+            max-width: 100%;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #D6EFD8, #80AF81, #508D4E, #1A5319);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        #LOGO {
+            width: 30rem;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.4s, opacity 0.4s;
+            cursor: pointer;
+            max-width: 90%;
+        }
+
+        #LOGO:hover {
+            transform: scale(1.2) rotate(3deg);
+        }
+
+        .hilang {
+            opacity: 0.1;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .daftar {
+            background: #D6EFD8;
+            padding: 20px;
+            max-width: 350px;
+            border: 1px solid #D6EFD8;
+            border-radius: 10px;
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        label {
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        button {
+            color: aliceblue;
+            background-color: #508D4E;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .gender {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .gender-btn {
+            padding: 10px 25px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+            user-select: none;
+            border: none;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        input:checked+.gender-btn {
+            background: #508D4E;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gender-btn:hover {
+            transform: scale(1.03);
+        }
+
+        #pesan {
+            font-size: small;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="MAJELIS.png" id="LOGO" alt="logo">
+        <div class="daftar">
+            <label for="nama">Nama: </label><br />
+            <input type="text" id="nama" placeholder="Nama lengkap" /><br />
+            <label for="no hp">No Handphone:</label><br />
+            <input type="number" id="no hp" placeholder="No HP Aktif" /><br />
+            <label for="tanggal lahir">Tanggal Lahir:</label><br />
+            <input type="date" id="tanggal lahir" placeholder="Tanggal lahir" /><br />
+            <label for="jenis kelamin">Jenis Kelamin:</label><br />
+            <div class="gender">
+                <input type="radio" name="gender" id="male" value="male" hidden>
+                <label for="male" class="gender-btn">Laki laki</label>
+                <input type="radio" name="gender" id="female" value="female" hidden>
+                <label for="female" class="gender-btn">Perempuan</label>
+            </div>
+            <label for="alasan mengikuti">Alasan Bergabung:</label><br />
+            <input type="text" id="alasan bergabung" placeholder="Alasan Begabung" /><br />
+            <p id="pesan"></p>
+            <br />
+            <button id="kirim">kirim</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("kirim").addEventListener("click", function () {
+            let nama = document.getElementById("nama").value.trim();
+            let hp = document.getElementById("no hp").value.trim();
+            let tgl = document.getElementById("tanggal lahir").value;
+            let alasan = document.getElementById("alasan bergabung").value.trim();
+            let pesan = document.getElementById("pesan");
+
+            let genderMale = document.getElementById("male").checked;
+            let genderFemale = document.getElementById("female").checked;
+            if (nama === "") {
+                pesan.textContent = "Nama tidak boleh kosong!";
+                pesan.style.color = "red";
+                return;
+            }
+            if (hp === "" || isNaN(hp) || hp.length < 10) {
+                pesan.textContent = "No HP harus angka dan minimal 10 digit!";
+                pesan.style.color = "red";
+                return;
+            }
+            if (tgl === "") {
+                pesan.textContent = "Tanggal lahir belum diisi!";
+                pesan.style.color = "red";
+                return;
+            }
+            if (!genderMale && !genderFemale) {
+                pesan.textContent = "Pilih jenis kelamin!";
+                pesan.style.color = "red";
+                return;
+            }
+            if (alasan.length < 10) {
+                pesan.textContent = "Alasan terlalu pendek!";
+                pesan.style.color = "red";
+                return;
+            }
+
+            pesan.textContent = "Data valid! Terima kasih sudah mendaftar!";
+            pesan.style.color = "green";
+        });
+
+        const gambar = document.getElementById("LOGO");
+        gambar.addEventListener("click", function () {
+            if (!gambar.classList.contains("hilang")) {
+                gambar.classList.add("hilang");
+            } else {
+                gambar.classList.remove("hilang");
+            }
+        });
+
+        const box = document.getElementById("kirim");
+        box.addEventListener("mouseover", function () {
+            box.style.backgroundColor = " #1A5319";
+        });
+        box.addEventListener("mouseout", function () {
+            box.style.backgroundColor = "#508D4E";
+        });
+    </script>
+</body>
+
+</html>

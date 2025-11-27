@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Majelis</title>
+    <link rel="stylesheet" href="nj.css">
+</head>
+
+<body>
+
+    <h2 id="title">Pendaftaran Menjadi Anggota Majelis</h2>
+
+    <form id="myForm">
+        <label>Nama:</label>
+        <input type="text" id="nama">
+
+        <label>Usia:</label>
+        <input type="number" id="usia">
+
+        <label>Email:</label>
+        <input type="email" id="email">
+
+        <img class="qris" src="qris.jpg" alt="QRIS">
+        <h3 class="fast">Fast Track</h3>
+
+        <button type="submit">Kirim</button>
+    </form>
+
+    <div id="msg"></div>
+    <div id="output"></div>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const nama = document.getElementById("nama");
+        const email = document.getElementById("email");
+        const usia = document.getElementById("usia");
+        const msg = document.getElementById("msg");
+        const output = document.getElementById("output");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (nama.value.trim() === "" || email.value.trim() === "") {
+                alert("Semua input wajib diisi!");
+                return;
+            }
+
+            alert("Data berhasil ditambahkan! Silahkan menunggu pengumuman.")
+
+            const p = document.createElement("p");
+            p.textContent = `Nama: ${nama.value} | Usia: ${usia.value} Tahun | Email: ${email.value}`;
+            output.appendChild(p);
+        });
+    </script>
+
+</body>
+
+</html>

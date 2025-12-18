@@ -1,0 +1,152 @@
+#wisata {
+    margin-top: 70px;
+    padding: 60px 20px;
+    background: rgba(255,255,255,0.9);
+}
+
+#wisata h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #1A5319;
+}
+
+.wisata-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.wisata-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.wisata-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.wisata-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #1A5319;
+}
+
+.wisata-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.wisata-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.wisata-tooltip {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 240px;
+    background: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 20;
+}
+
+.wisata-card:hover .wisata-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 768px) {
+    .wisata-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #logo {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li { margin: 10px 0; }
+
+    #wisata {
+        padding: 50px 15px;
+    }
+
+    .wisata-card img {
+        height: auto;
+    }
+
+    .wisata-card h3 {
+        font-size: 20px;
+    }
+
+    .wisata-card p {
+        font-size: 15px;
+    }
+
+    .wisata-tooltip {
+        width: 200px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wisata-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #wisata {
+        padding: 40px 10px;
+    }
+
+    .wisata-card img {
+        height: auto;
+    }
+
+    .wisata-card h3 {
+        font-size: 18px;
+    }
+
+    .wisata-card p {
+        font-size: 14px;
+    }
+
+    .wisata-tooltip {
+        width: 180px;
+        font-size: 13px;
+    }
+}

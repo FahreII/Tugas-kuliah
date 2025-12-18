@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kontak | Majelis Tour</title>
+    <link rel="stylesheet" href="css/kontak.css">
+    <link rel="stylesheet" href="css/semua.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <img id="logo" src="foto/majelis tour.png" alt="Majelis Tour">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+    </header>
+
+    <section class="kontak">
+        <h2>Hubungi Kami</h2>
+        <p class="subtitle">Silakan hubungi kami untuk informasi lebih lanjut</p>
+
+        <div class="kontak-wrapper">
+            <form class="kontak-form" id="kontakForm">
+                <label>Nama</label>
+                <input type="text" id="nama" placeholder="Nama lengkap">
+                <span class="error-msg" id="error-nama"></span>
+
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Email aktif">
+                <span class="error-msg" id="error-email"></span>
+
+                <label>Pesan</label>
+                <textarea id="pesan" rows="4" placeholder="Tulis pesan..."></textarea>
+                <span class="error-msg" id="error-pesan"></span>
+
+                <button type="submit">Kirim Pesan</button>
+                <p id="info"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Tentang Majelis Tour</h2>
+                <p>Majelis Tour adalah layanan wisata yang mengutamakan kenyamanan dan pengalaman terbaik.</p>
+            </div>
+
+            <div class="footer-right">
+                <h2>Kontak</h2>
+                <p>Email: majelistour@gmail.com <br> Telp: 082317945481 <br> Ig: majelis_tour</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("kontakForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nama = document.getElementById("nama").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const pesan = document.getElementById("pesan").value.trim();
+
+            const errorNama = document.getElementById("error-nama");
+            const errorEmail = document.getElementById("error-email");
+            const errorPesan = document.getElementById("error-pesan");
+            const info = document.getElementById("info");
+
+            errorNama.textContent = "";
+            errorEmail.textContent = "";
+            errorPesan.textContent = "";
+            info.textContent = "";
+
+            let valid = true;
+
+            if (nama === "") {
+                errorNama.textContent = "Nama wajib diisi!";
+                valid = false;
+            }
+
+            if (email === "") {
+                errorEmail.textContent = "Email wajib diisi!";
+                valid = false;
+            } else if (!email.includes("@")) {
+                errorEmail.textContent = "Email tidak valid!";
+                valid = false;
+            }
+
+            if (pesan === "") {
+                errorPesan.textContent = "Pesan wajib diisi!";
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            info.textContent = "Pesan berhasil dikirim. Terima kasih!";
+            info.style.color = "green";
+
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>

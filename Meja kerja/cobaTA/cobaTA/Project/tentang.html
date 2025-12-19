@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tentang</title>
+    <link rel="stylesheet" href="css/semua.css">
+    <link rel="stylesheet" href="css/tentang.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <img id="logo" src="foto/majelis tour.png" alt="Majelis Tour">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="tentang.html" class="active">Tentang</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+</header>
+
+
+<section id="jogja">
+    <img src="foto/yogya.jpg" id="tugu" alt="Tugu Yogyakarta">
+    <div class="hero-text">
+        <h1>Tentang Yogyakarta</h1>
+        <p>
+            Yogyakarta adalah ibu kota Provinsi Daerah Istimewa Yogyakarta (DIY), dikenal sebagai "Kota Budaya", "Kota
+            Pendidikan",
+            dan "Kota Gudeg", yang kaya akan tradisi Jawa, sejarah Kesultanan, serta pariwisata unik seperti Keraton,
+            Malioboro, dan
+            makanan khas gudeg, dengan filosofi tata ruang sumbu imajiner yang mencerminkan kehidupan ideal Jawa, serta
+            perpaduan
+            kearifan lokal dan modernitas yang menjadikannya destinasi utama di Indonesia.
+        </p>
+    </div>
+</section>
+
+    <section id="about">
+        <h2 class="section-title">Tim Tour Guide</h2>
+
+        <div class="card" data-guide="guide1">
+            <img src="foto/rian.png" alt="Tour Guide 1" class="photo">
+            <h3>Rian Adriansyah</h3>
+            <p>Umur: 18 Tahun</p>
+            <p>Asal: Pangkalan Bun</p>
+
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="rating-value">0</span>/5
+            </div>
+
+            <div class="comment-section">
+                <textarea placeholder="Tulis komentar..." class="comment-input"></textarea>
+                <button class="comment-btn">Kirim</button>
+                
+                <div class="comment-list"></div>
+            </div>
+        </div>
+
+        <div class="card" data-guide="guide2">
+            <img src="foto/fauzan.png" alt="Tour Guide 2" class="photo">
+
+            <h3>Fauzan Nafis</h3>
+            <p>Umur: 18 Tahun</p>
+            <p>Asal: Indramayu</p>
+            <p></p>
+
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="rating-value">0</span>/5
+            </div>
+
+            <div class="comment-section">
+                <textarea placeholder="Tulis komentar..." class="comment-input"></textarea>
+                <button class="comment-btn">Kirim</button>
+            
+                <div class="comment-list"></div>
+            </div>
+        </div>
+
+        <div class="card" data-guide="guide3">
+            <img src="foto/Fahrel.jpg" alt="Tour Guide 3" class="photo">
+
+            <h3>Abitien Ahmad Fahrel</h3>
+            <p>Umur: 18 Tahun</p>
+            <p>Asal: Bantul</p>
+            <p></p>
+
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="rating-value">0</span>/5
+            </div>
+
+            <div class="comment-section">
+                <textarea placeholder="Tulis komentar..." class="comment-input"></textarea>
+                <button class="comment-btn">Kirim</button>
+            
+                <div class="comment-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-container">
+    
+            <div class="footer-left">
+                <h2>Tentang Majelis Tour</h2>
+                <p>
+                    Majelis Tour adalah layanan wisata yang mengutamakan <br>
+                    kenyamanan, keamanan, dan pengalaman terbaik.
+                </p>
+            </div>
+    
+            <div class="footer-right">
+                <h2>Kontak</h2>
+                <p>
+                    Email: majelistour@gmail.com <br>
+                    Telp: 082317945481 <br>
+                    Ig: majelis_tour
+                </p>
+            </div>
+    
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.querySelectorAll(".card").forEach(card => {
+                const guideId = card.dataset.guide;
+
+                const stars = card.querySelectorAll(".star");
+                const value = card.querySelector(".rating-value");
+
+                const savedRating = localStorage.getItem(guideId);
+                if (savedRating) {
+                    value.textContent = savedRating;
+                    stars.forEach((star, i) => {
+                        star.classList.toggle("active", i < savedRating);
+                    });
+                }
+
+                stars.forEach((star, index) => {
+                    star.addEventListener("click", () => {
+                        const rating = index + 1;
+                        localStorage.setItem(guideId, rating);
+                        value.textContent = rating;
+
+                        stars.forEach((s, i) => {
+                            s.classList.toggle("active", i < rating);
+                        });
+                    });
+                });
+
+                const input = card.querySelector(".comment-input");
+                const btn = card.querySelector(".comment-btn");
+                const list = card.querySelector(".comment-list");
+
+                if (!input || !btn || !list) return;
+
+                const storageKey = guideId + "_comments";
+                const savedComments = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+                savedComments.forEach(comment => {
+                    addComment(comment.text);
+                });
+
+                btn.addEventListener("click", () => {
+                    const text = input.value.trim();
+                    if (text === "") return;
+
+                    const commentData = {
+                        name: "Anonymous",
+                        text: text
+                    };
+
+                    savedComments.push(commentData);
+                    localStorage.setItem(storageKey, JSON.stringify(savedComments));
+
+                    addComment(text);
+                    input.value = "";
+                });
+
+                function addComment(text) {
+                    const div = document.createElement("div");
+                    div.className = "comment-item";
+                    div.innerHTML = `
+                    <strong class="comment-name">Anonymous</strong>
+                    <p class="comment-text">${text}</p>
+                `;
+                    list.appendChild(div);
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

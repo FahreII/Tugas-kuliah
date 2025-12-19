@@ -1,0 +1,69 @@
+body {
+    
+    margin: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.6s ease;
+    background-image: url('/asset/backgroundmaalam.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.back a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2;
+}
+
+.web-options {
+    position: absolute;
+    top: 10%;
+    right: 40%;
+    font-size: 15px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2;
+    
+}
+
+
+
+/* bacground blur start */
+.blur-layar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* bacground blur end */
+
+
+.kotak  {
+    position: absolute;
+    right: 17%;
+    top: 15%;
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(29, 38, 45);
+    border: 2px solid rgb(24, 33, 34);
+    margin: 20px;
+    z-index: 1;
+
+}
+

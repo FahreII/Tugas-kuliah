@@ -1,0 +1,1 @@
+ # entry_jumlah.delete(0, tk.END)
